@@ -19,14 +19,14 @@ public class Servidor extends Thread
 		while(buffer.getNumClientes() > 0)
 		{
 			setMensajeActual(buffer.enviarMensaje());
-			if(getMensajeActual() == null)
+			if(mensajeActual == null)
 			{
 				this.yield();
 			}
 			else
 			{
-				getMensajeActual().setRespuesta(getMensajeActual().getPregunta() +1 );
-				getMensajeActual().notify();
+				mensajeActual.setRespuesta(mensajeActual.getPregunta() +1 );
+				mensajeActual.notify();
 			}
 			
 		}
