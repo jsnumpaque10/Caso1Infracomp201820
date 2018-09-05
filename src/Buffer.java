@@ -29,7 +29,7 @@ public class Buffer
 	public Buffer(int pCapacidadMensajes)
 	{
 		
-		setCapacidadMensajes(20);
+		setCapacidadMensajes(pCapacidadMensajes);
 		setNumClientes(0);
 		setCantidadMensajes(0);
 		Mensajes = new ArrayList<Mensaje>();
