@@ -71,33 +71,6 @@ public class Buffer
 		return enviar;
 	}
 	
-	
-
-	public int getNumClientes() {
-		return numClientes;
-	}
-
-	public void setNumClientes(int numClientes) {
-		this.numClientes = numClientes;
-	}
-
-	public int getCapacidadMensajes() {
-		return capacidadMensajes;
-	}
-
-	public void setCapacidadMensajes(int capacidadMensajes) {
-		this.capacidadMensajes = capacidadMensajes;
-	}
-
-	public int getCantidadMensajes() {
-		return cantidadMensajes;
-	}
-
-	public void setCantidadMensajes(int cantidadMensajes) {
-		this.cantidadMensajes = cantidadMensajes;
-	}
-	
-	
 	public boolean recibir(Mensaje mensaje) 
 	{
 		synchronized (this) {
@@ -121,13 +94,58 @@ public class Buffer
 		}
 		
 		}
-		
-		
-		
-		
-		
 	}
 	
 	
+	/**
+	 * Método que retorna el número de clientes que han entrado en el Buffer
+	 * @return El número de clientes que están en un momento dado en el Buffer 
+	 */
+	public int getNumClientes() {
+		return numClientes;
+	}
+	
+	/**
+	 * Cambia el número de clientes que están en el buffer
+	 * @param numClientes 
+	 */
 
+	public void setNumClientes(int numClientes) {
+		this.numClientes = numClientes;
+	}
+
+	/**
+	 * Da la cantidad de mensajes que puede recibir el buffer simultáneamente
+	 * @return La cantidad de mensajes que puede soportar el buffer
+	 */
+	public int getCapacidadMensajes() {
+		return capacidadMensajes;
+	}
+	
+	/**
+	 * Cambia la capacidad del buffer
+	 * @param capacidadMensajes
+	 */
+
+	public void setCapacidadMensajes(int capacidadMensajes) {
+		this.capacidadMensajes = capacidadMensajes;
+	}
+	
+	/**
+	 * Da la cantidad de mensajes que están siendo procesados por el buffer
+	 * @return Cantidad de mensajes en el buffer en un instante dado
+	 */
+
+	public int getCantidadMensajes() {
+		return cantidadMensajes;
+	}
+	
+	/**
+	 * Cambia la cantidad de mensajes que están siendo procesados por el buffer en un momento dado
+	 * @param cantidadMensajes
+	 */
+	public void setCantidadMensajes(int cantidadMensajes) {
+		this.cantidadMensajes = cantidadMensajes;
+	}
+	
 }
