@@ -53,6 +53,11 @@ public class Buffer
 		}
 	}
 	
+	/**
+	 * Envía un mensaje al servidor
+	 * @return El mensaje enviado
+	 */
+	
 	public  Mensaje enviarMensaje()
 	{ 
 		
@@ -70,7 +75,11 @@ public class Buffer
 		}
 		return enviar;
 	}
-	
+	/**
+	 * Recibe un mensaje del cliente
+	 * @param mensaje El mensaje recibido
+	 * @return TRUE si el mensaje se recibió y FALSE de lo contrario
+	 */
 	public boolean recibir(Mensaje mensaje) 
 	{
 		synchronized (this) {
