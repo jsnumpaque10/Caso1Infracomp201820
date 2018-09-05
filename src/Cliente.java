@@ -5,7 +5,7 @@ public class Cliente extends Thread
 	private Mensaje mensaje;
 	private Buffer buffer;
 	private int cantidadMensajes; 
-	private int mensajesEnviados = 0;
+	private int mensajesEnviados;
 	
 	/**
 	 * Método constructor de la clase Cliente
@@ -13,8 +13,10 @@ public class Cliente extends Thread
 	
 	public Cliente (Buffer pBuffer, int pCantidadMensajes )
 	{
-		buffer = pBuffer;
-		cantidadMensajes= pCantidadMensajes;
+		setBuffer(pBuffer);
+		setCantidadMensajes(pCantidadMensajes);
+		setMensajesEnviados(0);
+		setMensaje(null);
 	}
 	
 	/**
@@ -29,10 +31,10 @@ public class Cliente extends Thread
 		while(mensajesEnviados < cantidadMensajes)
 		{
 			
-		mensaje = new Mensaje(randInt(0,999999));
+		setMensaje(new Mensaje(randInt(0,999999)));
 		 exito = buffer.recibir(mensaje);
 		 if(exito){
-		mensajesEnviados ++;
+		setMensajesEnviados(mensajesEnviados + 1);
 		 }
 		 else
 		 {
@@ -58,6 +60,24 @@ public class Cliente extends Thread
 
 		return randomNum;
 		
+	}
+	
+
+	public void setMensajesEnviados(int mensajesEnviados) {
+		this.mensajesEnviados = mensajesEnviados;
+	}
+
+
+	public void setMensaje(Mensaje mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public void setBuffer(Buffer buffer) {
+		this.buffer = buffer;
+	}
+
+	public void setCantidadMensajes(int cantidadMensajes) {
+		this.cantidadMensajes = cantidadMensajes;
 	}
 	
 

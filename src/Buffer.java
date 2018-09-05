@@ -22,6 +22,10 @@ public class Buffer
 	 */
 	private ArrayList<Mensaje> Mensajes;
 	
+	/**
+	 * Constructor de la clase Buffer
+	 */
+	
 	public Buffer(int pCapacidadMensajes)
 	{
 		

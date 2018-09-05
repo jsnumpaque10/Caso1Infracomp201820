@@ -12,11 +12,22 @@ public class main {
 		 * Se inicializa el buffer 
 		 */
 		Buffer buffer = new Buffer(capacidadBuffer);
+		
 		/**
 		 * Se inicializan los arreglos que van a contener los threads
 		 */
 		Servidor[] servidores = new Servidor[cantidadServidores];
 		Cliente[] clientes = new Cliente[cantidadClientes];
+		
+		
+		/**
+		 * Se inicializan los clientes
+		 */
+		
+		for (int i = 0; i < clientes.length; i++) {
+			clientes[i] = new Cliente(buffer,cantidadMensajesXCliente);
+			clientes[i].start();
+		}
 		
 		/**
 		 * Se inicializan los servidores
@@ -26,15 +37,6 @@ public class main {
 		{
 			servidores[i] = new Servidor(buffer);
 			servidores[i].start();
-		}
-		
-		/**
-		 * Se inicializan los clientes
-		 */
-		
-		for (int i = 0; i < clientes.length; i++) {
-			clientes[i] = new Cliente(buffer,cantidadMensajesXCliente);
-			clientes[i].start();
 		}
 		
 		

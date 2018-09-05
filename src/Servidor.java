@@ -1,6 +1,6 @@
 public class Servidor extends Thread
 {
-	private static Buffer buffer;
+	private Buffer buffer;
 	private Mensaje mensajeActual ;
 	
 	/**
@@ -9,8 +9,8 @@ public class Servidor extends Thread
 	
 	public Servidor (Buffer pBuffer)
 	{
-		buffer = pBuffer;
-		mensajeActual=null;
+		setBuffer(pBuffer);
+		setMensajeActual(null);
 	}
 	
 	
@@ -18,20 +18,44 @@ public class Servidor extends Thread
 	{
 		while(buffer.getNumClientes() > 0)
 		{
-			mensajeActual = buffer.enviarMensaje();
-			if(mensajeActual == null)
+			setMensajeActual(buffer.enviarMensaje());
+			if(getMensajeActual() == null)
 			{
 				this.yield();
 			}
 			else
 			{
-				mensajeActual.setRespuesta(mensajeActual.getPregunta() +1 );
-				mensajeActual.notify();
+				getMensajeActual().setRespuesta(getMensajeActual().getPregunta() +1 );
+				getMensajeActual().notify();
 			}
 			
 		}
 		
 	}
-	
+
+	/**
+	 *  Retorna el mensaje que está procesando el servidor
+	 * @return El mensaje deseado
+	 */
+	public Mensaje getMensajeActual() {
+		return mensajeActual;
+	}
+
+	/**
+	 * Configura el mensaje que va a procesar el servidor
+	 * @param mensajeActual
+	 */
+	public void setMensajeActual(Mensaje mensajeActual) {
+		mensajeActual = mensajeActual;
+	}
+
+	/**
+	 * Configura el buffer que se va a comunicar con el servidor
+	 * @param buffer
+	 */
+	public void setBuffer(Buffer buffer) {
+		buffer = buffer;
+	}
+		
 
 }
