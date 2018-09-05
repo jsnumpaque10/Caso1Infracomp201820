@@ -4,8 +4,8 @@ public class main {
 	public static void main ( String args[])
 	{
 		int capacidadBuffer = 20;
-		int cantidadClientes = 20;
-		int cantidadServidores = 100;
+		int cantidadClientes = 1;
+		int cantidadServidores = 1;
 		int cantidadMensajesXCliente = 5;
 		
 		/**

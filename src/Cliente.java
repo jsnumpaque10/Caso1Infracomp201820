@@ -31,15 +31,16 @@ public class Cliente extends Thread
 		while(mensajesEnviados < cantidadMensajes)
 		{
 			
-		setMensaje(new Mensaje(randInt(0,999999)));
-		 exito = buffer.recibir(mensaje);
-		 if(exito){
-		setMensajesEnviados(mensajesEnviados + 1);
-		 }
-		 else
-		 {
+			setMensaje(new Mensaje(randInt(0,999999)));
+			exito = buffer.recibir(mensaje);
+			if(exito)
+			{
+				setMensajesEnviados(mensajesEnviados + 1);
+			}
+			else
+			{
 			 this.yield();
-		 }
+			}
 
 		
 		}
