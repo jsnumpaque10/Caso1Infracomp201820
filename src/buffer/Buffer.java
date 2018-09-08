@@ -51,6 +51,7 @@ public class Buffer
 	 */
 	public  VOMensajeRespuesta enviarMensaje()
 	{ 
+		VOMensajeRespuesta respuesta;
 		synchronized( vacio )
 		{
 			while (mensajes.size( ) == 0 )
@@ -65,9 +66,8 @@ public class Buffer
 				}
 			}
 		}
-		VOMensajeRespuesta respuesta;
 		synchronized(this)
-		{
+		{		
 			respuesta = mensajes.remove(0); 
 			if(respuesta.esElUltimoMensaje())
 			{

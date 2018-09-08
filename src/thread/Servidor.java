@@ -28,8 +28,7 @@ public class Servidor extends Thread
 	 */
 	public Servidor(int idServidor)
 	{
-		this.idServidor = idServidor;
-		
+		this.idServidor = idServidor;		
 	}
 
 	//INIT
@@ -66,7 +65,7 @@ public class Servidor extends Thread
 	public void responder(VOMensajeRespuesta mensaje)
 	{
 		int mensajeValue = mensaje.getMensaje();
-		int respuestaServidor = mensajeValue++;
+		int respuestaServidor = mensajeValue + 1;
 		mensaje.setRespuesta(respuestaServidor);
 		mensaje.getContenedor().mensajeRespondido();
 	}

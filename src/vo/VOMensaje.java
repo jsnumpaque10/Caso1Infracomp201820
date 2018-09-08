@@ -10,6 +10,11 @@ public class VOMensaje
 	//ATRIBUTOS ESTÁTICOS
 	
 	/**
+	 * Modela el id del cliente al que pertenece
+	 */
+	private int idCliente;
+	
+	/**
 	 * Modela al buffer que comunica a los clientes con los servidores
 	 */
 	private static Buffer buffer;
@@ -161,8 +166,10 @@ public class VOMensaje
 	 * Constructor de la clase
 	 * @param numMensajes numero de mensajes que enviará el cliente!
 	 */
-	public VOMensaje(int numMensajes)
+	public VOMensaje(int numMensajes, int pIdCliente)
 	{
+	
+		idCliente = pIdCliente;
 		this.mensajes = new ArrayList<>();
 		this.numMensajes = numMensajes;
 		this.numMensajesVistos = 0;
@@ -174,13 +181,15 @@ public class VOMensaje
 			{
 				mensajito.setEsElUltimoMensaje(true);
 			}
+			else
+			{
+				mensajito.setEsElUltimoMensaje(false);
+			}
 			mensajes.add(mensajito);	
 		}
 	}
 	
-	//------------------------------------------------------------------------------------------------------------------
-	// METODOS  DE LA CLASE
-	//------------------------------------------------------------------------------------------------------------------
+	// METODOS
 	
 	/**
 	 * Indica si el buffer está lleno (o no) con el fin de decidir si se puede o no enviarle un mensaje
@@ -198,7 +207,10 @@ public class VOMensaje
 	public synchronized void enviarMensajeABuffer(int idClient)
 	{
 		VOMensajeRespuesta mensajito = this.mensajes.get(numMensajesVistos);
-		numMensajesVistos++;
+		
+		//Aumentamos el numero de mensajes vistos por 1
+	    numMensajesVistos++;
+				
 		buffer.recibir(mensajito);
 		try 
 		{
@@ -225,14 +237,13 @@ public class VOMensaje
 	 */
 	public void imprimirRespuesta()
 	{
-		System.out.println("oli linduritas");
-
+		//Imprimimos la respuesta
+		System.out.println("El cliente " + idCliente + " ha recibido la respuesta " + mensajes.get(numMensajesVistos-1).getRespuesta() + " a su mensaje " + mensajes.get(numMensajesVistos-1).getMensaje());	
 	}
 	
 	/**
-	 * Indica si ya no hay mas mensajes para enviar.
-	 * @return	true, si el numero de mensajes actuales es igual a cero.
-	 * 			false, d.l.c
+	 * Indica si se han respondido todos los mensajes
+	 * @return true si sí, false de lo contrario
 	 */
 	public boolean seHanRespondidoTodosLosMensajes()
 	{
@@ -250,5 +261,13 @@ public class VOMensaje
 		Random rand = new Random();
 		int randomNum = rand.nextInt((max - min) + 1) + min;
 		return randomNum;
+	}
+
+	/**
+	 * @return the mensajes
+	 */
+	public ArrayList<VOMensajeRespuesta> getMensajes()
+	{
+		return mensajes;
 	}
 }

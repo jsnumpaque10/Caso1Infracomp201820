@@ -25,7 +25,7 @@ public class Cliente extends Thread
 	 */
 	public Cliente(int numeroDeMensajes, int idCliente) 
 	{
-		this.mensajes = new VOMensaje(numeroDeMensajes);
+		this.mensajes = new VOMensaje(numeroDeMensajes, idCliente);
 		this.idCliente = idCliente;
 	}
 
@@ -34,7 +34,7 @@ public class Cliente extends Thread
 	@Override
 	public void run()
 	{
-		System.out.println("El cliente" + idCliente + "ha empezado a enviar mensajes");
+		System.out.println("El cliente " + idCliente + " ha empezado a enviar mensajes");
 		while(!mensajes.seHanRespondidoTodosLosMensajes())
 		{
 			while(!mensajes.sePuedeEnviarABuffer()) 
@@ -43,7 +43,6 @@ public class Cliente extends Thread
 			}
 			mensajes.enviarMensajeABuffer(idCliente);
 		}
-		
-		System.out.println("El cliente"+ idCliente + "ha recibido todas sus respuestas");
+		System.out.println("El cliente " + idCliente + " ha recibido todos sus mensajes");		
 	}
 }

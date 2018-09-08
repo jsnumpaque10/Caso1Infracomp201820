@@ -75,10 +75,7 @@ public class Principal
 				{
 					servidores[j] = new Servidor(j);
 					servidores[j].start();
-				}
-				
-				
-				
+				}				
 				
 				bfr.close();
 			} 
