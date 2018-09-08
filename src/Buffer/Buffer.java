@@ -1,4 +1,7 @@
+package Buffer;
 import java.util.ArrayList;
+
+import VO.VOMensaje;
 
 public class Buffer
 {
@@ -20,7 +23,7 @@ public class Buffer
 	/**
 	 * Contenedor de todos los mensajes que recibe el buffer.
 	 */
-	private ArrayList<Mensaje> Mensajes;
+	private ArrayList<VOMensaje> Mensajes;
 	
 	/**
 	 * Constructor de la clase Buffer
@@ -32,7 +35,7 @@ public class Buffer
 		setCapacidadMensajes(pCapacidadMensajes);
 		setNumClientes(0);
 		setCantidadMensajes(0);
-		Mensajes = new ArrayList<Mensaje>();
+		Mensajes = new ArrayList<VOMensaje>();
 
 	}
 	
@@ -62,10 +65,10 @@ public class Buffer
 	 * @return El mensaje enviado
 	 */
 	
-	public  Mensaje enviarMensaje()
+	public  VOMensaje enviarMensaje()
 	{ 
 		
-	Mensaje enviar = null;
+	VOMensaje enviar = null;
 		synchronized(this)
 		{
 			if (Mensajes.size() > 0)
@@ -84,7 +87,7 @@ public class Buffer
 	 * @param mensaje El mensaje recibido
 	 * @return TRUE si el mensaje se recibió y FALSE de lo contrario
 	 */
-	public boolean recibir(Mensaje mensaje) 
+	public boolean recibir(VOMensaje mensaje) 
 	{
 		synchronized (this) {
 		if(cantidadMensajes<capacidadMensajes)

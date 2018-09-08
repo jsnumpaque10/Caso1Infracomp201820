@@ -1,8 +1,12 @@
+package Thread;
 import java.util.Random;
+
+import Buffer.Buffer;
+import VO.VOMensaje;
 
 public class Cliente extends Thread
 {
-	private Mensaje mensaje;
+	private VOMensaje mensaje;
 	private Buffer buffer;
 	private int cantidadMensajes; 
 	private int mensajesEnviados;
@@ -31,7 +35,7 @@ public class Cliente extends Thread
 		while(mensajesEnviados < cantidadMensajes)
 		{
 			
-			setMensaje(new Mensaje(randInt(0,999999)));
+			setMensaje(new VOMensaje(randInt(0,999999)));
 			exito = buffer.recibir(mensaje);
 			if(exito)
 			{
@@ -69,7 +73,7 @@ public class Cliente extends Thread
 	}
 
 
-	public void setMensaje(Mensaje mensaje) {
+	public void setMensaje(VOMensaje mensaje) {
 		this.mensaje = mensaje;
 	}
 

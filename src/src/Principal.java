@@ -1,7 +1,16 @@
+package src;
 
-public class main {
+import Buffer.Buffer;
+import Thread.Cliente;
+import Thread.Servidor;
+
+/**
+ * Esta clase se encarga de correr la aplicación
+ */
+public class Principal
+{
 	
-	public static void main ( String args[])
+	public static void main (String[] args)
 	{
 		int capacidadBuffer = 20;
 		int cantidadClientes = 1;

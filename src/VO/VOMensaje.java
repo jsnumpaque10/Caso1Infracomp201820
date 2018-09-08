@@ -1,10 +1,11 @@
+package VO;
 
-public class Mensaje
+public class VOMensaje
 {
 	private int pregunta;
 	private int respuesta;
 	
-	public Mensaje (int pPregunta)
+	public VOMensaje (int pPregunta)
 	{
 		setPregunta(pPregunta);
 	}

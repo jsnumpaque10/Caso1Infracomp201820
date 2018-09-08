@@ -1,7 +1,12 @@
+package Thread;
+
+import Buffer.Buffer;
+import VO.VOMensaje;
+
 public class Servidor extends Thread
 {
 	private Buffer buffer;
-	private Mensaje mensajeActual ;
+	private VOMensaje mensajeActual ;
 	
 	/**
 	 * Método constructor de la clase Servidor
@@ -37,7 +42,7 @@ public class Servidor extends Thread
 	 *  Retorna el mensaje que está procesando el servidor
 	 * @return El mensaje deseado
 	 */
-	public Mensaje getMensajeActual() {
+	public VOMensaje getMensajeActual() {
 		return mensajeActual;
 	}
 
@@ -45,7 +50,7 @@ public class Servidor extends Thread
 	 * Configura el mensaje que va a procesar el servidor
 	 * @param mensajeActual
 	 */
-	public void setMensajeActual(Mensaje mensajeActual) {
+	public void setMensajeActual(VOMensaje mensajeActual) {
 		mensajeActual = mensajeActual;
 	}
 
