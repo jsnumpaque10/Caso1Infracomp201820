@@ -1,7 +1,6 @@
 package thread;
 
 import buffer.Buffer;
-import vo.VOMensaje;
 import vo.VOMensaje.VOMensajeRespuesta;
 
 public class Servidor extends Thread

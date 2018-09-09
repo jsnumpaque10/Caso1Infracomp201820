@@ -165,6 +165,7 @@ public class VOMensaje
 	/**
 	 * Constructor de la clase
 	 * @param numMensajes numero de mensajes que enviará el cliente!
+	 * @Param pIdCliente id Clietne
 	 */
 	public VOMensaje(int numMensajes, int pIdCliente)
 	{
@@ -201,10 +202,9 @@ public class VOMensaje
 	}
 	
 	/**
-	 * Envía uno de los mensajes del cliente y deja dormido al cliente hasta que llegue respuesta
-	 * @throws InterruptedException
+	 * Envía un mensaje del cliente al buffer
 	 */
-	public synchronized void enviarMensajeABuffer(int idClient)
+	public synchronized void enviarMensajeABuffer()
 	{
 		VOMensajeRespuesta mensajito = this.mensajes.get(numMensajesVistos);
 		

@@ -41,7 +41,7 @@ public class Cliente extends Thread
 			{
 				yield();
 			}
-			mensajes.enviarMensajeABuffer(idCliente);
+			mensajes.enviarMensajeABuffer();
 		}
 		System.out.println("El cliente " + idCliente + " ha recibido todos sus mensajes");		
 	}

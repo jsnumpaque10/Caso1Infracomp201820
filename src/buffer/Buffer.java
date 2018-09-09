@@ -111,6 +111,15 @@ public class Buffer
 			vacio.notify(); 
 		}
 	}
+	
+	/**
+	 * Retorna si aún hay clientes por atender
+	 * @return false si numClientes es mayor a 0.True de lo contrario
+	 */
+	public synchronized boolean aunHayClientes() 
+	{
+		return numClientes != 0;
+	}
 
 	/**
 	 * Retorna el numero de mensajes qeu se encuentran en el buffer
@@ -128,15 +137,5 @@ public class Buffer
 	public synchronized boolean estaLleno() 
 	{
 		return mensajes.size() == capacidadMensajes;
-	}
-
-	/**
-	 * Retorna si aún hay clientes por atender
-	 * @return false si numClientes es mayor a 0.True de lo contrario
-	 */
-	public synchronized boolean aunHayClientes() 
-	{
-		return numClientes != 0;
-	}
-
+	}	
 }
