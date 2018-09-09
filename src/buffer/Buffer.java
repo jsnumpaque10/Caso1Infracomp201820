@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 import vo.VOMensaje.VOMensajeRespuesta;
 
+/**
+ * Clase buffer que se encarga de ser el intermediario entre cliente (mensajes) y servidor
+ */
 public class Buffer
 {
 	//ATRIBUTOS
@@ -46,7 +49,7 @@ public class Buffer
 	//MÉTODOS
 	
 	/**
-	 * EnvÃ­a un mensaje al servidor
+	 * Envía un mensaje al servidor
 	 * @return El mensaje enviado
 	 */
 	public  VOMensajeRespuesta enviarMensaje()
@@ -84,7 +87,6 @@ public class Buffer
 	/**
 	 * Recibe un mensaje del cliente
 	 * @param mensaje El mensaje recibido
-	 * @return TRUE si el mensaje se recibiÃ³ y FALSE de lo contrario
 	 */
 	public void recibir(VOMensajeRespuesta mensaje) 
 	{
@@ -114,7 +116,7 @@ public class Buffer
 	
 	/**
 	 * Retorna si aún hay clientes por atender
-	 * @return false si numClientes es mayor a 0.True de lo contrario
+	 * @return true si numClientes es mayor a 0.False de lo contrario
 	 */
 	public synchronized boolean aunHayClientes() 
 	{
@@ -122,7 +124,7 @@ public class Buffer
 	}
 
 	/**
-	 * Retorna el numero de mensajes qeu se encuentran en el buffer
+	 * Retorna el numero de mensajes que se encuentran en el buffer
 	 * @return tamaño del array de mensajes
 	 */
 	public synchronized int mensajesDisponiblesParaServidor() 

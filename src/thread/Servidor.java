@@ -3,6 +3,10 @@ package thread;
 import buffer.Buffer;
 import vo.VOMensaje.VOMensajeRespuesta;
 
+/**
+ * Clase que modela una thread servidor, se encarga de comunicarce con el buffer y 
+ * responder los mensajes que vaya extrayendo de allí
+ */
 public class Servidor extends Thread
 {
 	
@@ -32,6 +36,10 @@ public class Servidor extends Thread
 
 	//INIT
 	
+	/**
+	 * Inicializa el buffer compartido con los clientes
+	 * @param buff
+	 */
 	public static void inicializar(Buffer buff)
 	{
 		buffer = buff;

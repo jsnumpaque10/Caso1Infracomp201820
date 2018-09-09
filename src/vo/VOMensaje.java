@@ -5,14 +5,14 @@ import java.util.Random;
 
 import buffer.Buffer;
 
+/**
+ * Value Object que modela los mensajes de un cliente. Se encarga 
+ * de envíar los mensajes al buffer y de dormir al cliente mientras 
+ * un servidor se comunica con el buffer para responder el mensaje
+ */
 public class VOMensaje
 {
 	//ATRIBUTOS ESTÁTICOS
-	
-	/**
-	 * Modela el id del cliente al que pertenece
-	 */
-	private int idCliente;
 	
 	/**
 	 * Modela al buffer que comunica a los clientes con los servidores
@@ -20,6 +20,11 @@ public class VOMensaje
 	private static Buffer buffer;
 	
 	//ATRIBUTOS 
+	
+	/**
+	 * Modela el id del cliente al que pertenece
+	 */
+	private int idCliente;
 	
 	/**
 	 * Modela el numero de mensajes que ya fueron respondidos por un servidor
@@ -165,11 +170,10 @@ public class VOMensaje
 	/**
 	 * Constructor de la clase
 	 * @param numMensajes numero de mensajes que enviará el cliente!
-	 * @Param pIdCliente id Clietne
+	 * @Param pIdCliente id del Cliente
 	 */
 	public VOMensaje(int numMensajes, int pIdCliente)
 	{
-	
 		idCliente = pIdCliente;
 		this.mensajes = new ArrayList<>();
 		this.numMensajes = numMensajes;
@@ -190,11 +194,11 @@ public class VOMensaje
 		}
 	}
 	
-	// METODOS
+	//MÉTODOS
 	
 	/**
 	 * Indica si el buffer está lleno (o no) con el fin de decidir si se puede o no enviarle un mensaje
-	 * @return
+	 * @return true si el buffer está lleno, false de lo contrario
 	 */
 	public boolean sePuedeEnviarABuffer()
 	{
@@ -247,7 +251,7 @@ public class VOMensaje
 	 */
 	public boolean seHanRespondidoTodosLosMensajes()
 	{
-		return (numMensajesVistos) == numMensajes;
+		return numMensajesVistos == numMensajes;
 	}
 	
 	/**

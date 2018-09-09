@@ -2,6 +2,9 @@ package thread;
 
 import vo.VOMensaje;
 
+/**
+ * Modela un Cliente Thread. Posee mensajes que se envían el buffer
+ */
 public class Cliente extends Thread
 {
 	//ATRIBUTOS

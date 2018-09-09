@@ -77,6 +77,7 @@ public class Principal
 					servidores[j].start();
 				}				
 				
+				//Se cierra el BufferedReared
 				bfr.close();
 			} 
 			catch (IOException e)
